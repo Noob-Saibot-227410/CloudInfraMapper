@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <title>CloudInfraMapper</title>
+    <script src='./js/nprogress.js'></script>
+    <link href='./css/nprogress.css' rel="stylesheet" type="text/css"/>
+
+    <link href="./css/jquery.qtip.css" rel="stylesheet" type="text/css" />
+    <link href="./css/cytoscape.js-panzoom.css" rel="stylesheet" type="text/css" />
+    <link href="./css/font-awesome.css" rel="stylesheet" type="text/css" />
+
+    <link href="./css/cytoscape.js-navigator.css" rel="stylesheet" type="text/css" />
+    <link href="./css/akkordion.css" rel="stylesheet" type="text/css" />
+
+    <link href="./css/cloudmap.css" rel="stylesheet" type="text/css" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico"/>
+</head>
+
+<body>
+    <div id="menu">
+        <b id="hide" class="fa fa-eye-slash fa-lg tooltip"><span class="tooltiptext">Excluir</span></b>
+        <b id="showAll" class="fa fa-eye fa-lg tooltip"><span class="tooltiptext">Recuperar tudo</span></b>
+        &nbsp;  
+        <b id="highlightNeighbors" class="fa fa-share-alt fa-lg tooltip"><span class="tooltiptext">Highlight neighbors</span></b>
+        <b id="removeHighlights" class="fa fa-share-alt-square fa-lg tooltip"><span class="tooltiptext">Remove highlight of neighbors</span></b>
+        &nbsp;
+        <b id="collapseAll" class="fa fa-compress fa-lg tooltip"><span class="tooltiptext">Recolher tudo</span></b> 
+        <b id="expandAll" class="fa fa-expand fa-lg tooltip"><span class="tooltiptext">Expandir tudo</span></b>
+        &nbsp;
+        <b id="collapseRecursively" class="fa fa-minus fa-lg tooltip"><span class="tooltiptext">Recolher selecionado</span></b>
+        <b id="expandRecursively" class="fa fa-plus fa-lg tooltip"><span class="tooltiptext">Expandir selecionado</span></b>
+        &nbsp;
+        <b id="randomizeLayout" class="fa fa-gavel fa-lg tooltip"><span class="tooltiptext">Redesenhar com layout aleatório</span></b>
+        &nbsp;
+        <b id="saveImage" class="fa fa-camera fa-lg tooltip"><span class="tooltiptext">Salvar Image</span></b>
+        &nbsp; 
+        <b id="exportLayout" class="fa fa-download fa-lg tooltip"><span class="tooltiptext">Exportar</span></b>
+        <label for="fileUpload"><b id="importLayout" style="display: inline-block;" class="fa fa-upload fa-lg tooltip"><span class="tooltiptext">Import</span></b></label>
+        <input type="file" id="fileUpload" style="display: none;" onchange="importLayout()">
+
+        <div id="nodeInfo">
+                <div id="nodeLocation">&nbsp;</div>
+                <div class="akkordion" data-akkordion-single="true" data-akkordion-speed="200" id="nodeDescriptionHolder">
+                    <div class="akkordion-title nodeHeader"><span id="nodeName">Bem Vindo ao CloudInfraMapper</span></div>
+                    <div class="akkordion-content frame akkordion-active" id="nodeDescription">
+                        <div class="akkordion" data-akkordion-single="false" data-akkordion-speed="200" id="nodeDescriptionHolder">
+                            <div class="akkordion-title">Resumo</div>
+                            <div class="akkordion-content akkordion-active" id="Summary">
+                                Depois que o gráfico for carregado, clique nos ícones e expanda essas janelas para saber mais sobre os nós.
+                            </div>
+                            <div class="akkordion-title">Detalhes</div>
+                            <div class="akkordion-content" id="Details">Nenhum</div>
+                            <div class="akkordion-title">Vizinhos(as)</div>
+                            <div class="akkordion-content" id="Neighbors"></div>
+                            <div class="akkordion-title">Irmãos</div>
+                            <div class="akkordion-content" id="Siblings"></div>
+                            <div class="akkordion-title">Crianças</div>
+                            <div class="akkordion-content" id="Children"></div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div id="cy"></div>
+
+    <script src='./js/cytoscape.min.js'></script>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery.qtip.js"></script>
+    <script src='./js/cytoscape-cose-bilkent.js'></script>
+    <script src='./js/cytoscape-grid-guide.js'></script>
+    <script src='./js/cytoscape-qtip.js'></script>
+
+    <script src="./js/cytoscape-panzoom.js"></script>
+    <script src="./js/cytoscape-undo-redo.js"></script>
+    <script src="./js/cytoscape-view-utilities.js"></script>
+    <script src="./js/cytoscape-expand-collapse.js"></script>
+    <script src="./js/cytoscape-navigator.js"></script>
+    <script src="./js/cytoscape-autopan-on-drag.js"></script>
+
+    <script src="./js/FileSaver.min.js"></script>
+    <script src="./js/circular-json.js"></script>
+    <script src="./js/mousetrap.min.js"></script>
+    <script src="./js/akkordion.min.js"></script>
+
+    <script src="./js/nodeInfo.js"></script>
+    <script src="./js/cloudmap.js"></script>
+</body>
+</html>
